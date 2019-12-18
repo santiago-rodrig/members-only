@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.delete_all
+Post.delete_all
+
+User.create([
+  { name: 'john',
+    email: 'john@example.com',
+    password: 'secret',
+    password_confirmation: 'secret'
+  },
+  { name: 'jen',
+    email: 'jen@example.com',
+    password: 'secret',
+    password_confirmation: 'secret'
+  }
+])
+
+User.find_by(name: 'john').posts.build(
+  title: 'Secrets about Jen',
+  body: 'Bla Bla Bla Secret here Bla'
+)
+
+User.find_by(name: 'jen').posts.build(
+  title: 'Secrets about John',
+  body: 'Bla Bla Bla Secret here Bla'
+)

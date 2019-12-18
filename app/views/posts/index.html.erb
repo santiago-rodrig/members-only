@@ -1,0 +1,13 @@
+<% flash.each do |key, msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<h1>All Posts</h1>
+
+<ul>
+  <%= render @posts %>
+</ul>
+
+<% if logged_in? %>
+  <%= link_to 'Create Post', new_post_path %>
+<% end %>

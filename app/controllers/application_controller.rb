@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
-  def sig_in(user)
+  def sign_in(user)
     session[:user_id] = user.id
     cookies.permanent[:remember_token] = user.renew_token
     self.current_user = user
+    redirect_to posts_url
   end
 
   def current_user
@@ -12,5 +13,19 @@ class ApplicationController < ActionController::Base
 
   def current_user=(user)
     @current_user = user
+  end
+
+  def sign_out
+    session.delete(:user_id)
+    cookies.delete(:remember_token)
+    self.current_user = nil
+    redirect_to posts_url
+  end
+
+  private
+
+  def require_login
+    flash[:danger] = 'You are not a member'
+    redirect_to posts_url
   end
 end

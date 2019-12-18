@@ -1,0 +1,15 @@
+<li>
+  <p>Title:
+    <%= post.title %>
+  </p>
+
+  <p>
+    <%= post.content %>
+  </p>
+
+  <% if current_user %>
+    <p>
+      <%= post.user.name %>
+    </p>
+  <% end %>
+</li>
