@@ -1,7 +1,3 @@
-<% flash.each do |key, msg| %>
-  <p><%= msg %></p>
-<% end %>
-
 <h1>Please Login</h1>
 
 <%= form_with(scope: :session, url: login_url, local: true) do |f| %>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>MembersOnly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
 
     <%= stylesheet_pack_tag 'application', media: 'all',
       'data-turbolinks-track': 'reload' %>
@@ -21,7 +23,7 @@
 
     <div class="container">
       <div class="row">
-        <main class="<%= controller_name %> pt-5 col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <main class="<%= controller_name %> pt-3 col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
           <%= yield %>
         </main>
       </div>
