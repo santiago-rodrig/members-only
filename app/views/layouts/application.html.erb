@@ -14,8 +14,10 @@
       <%= render 'layouts/header' %>
 
     <div class="container">
-      <div class="<%= controller_name %>">
-        <%= yield %>
+      <div class="row">
+        <main class="<%= controller_name %> pt-5 col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+          <%= yield %>
+        </main>
       </div>
     </div>
   </body>

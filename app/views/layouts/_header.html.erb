@@ -15,6 +15,7 @@
         <% else %>
           <% unless controller_name == 'sessions' %>
             <li class="nav-item">
+              <%= link_to 'Create Post', new_post_path %>
               <%= link_to 'Log out', logout_path,
                 method: :delete, class: 'nav-link' %>
             </li>

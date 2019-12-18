@@ -1,13 +1,12 @@
-<% flash.each do |key, msg| %>
-  <p><%= msg %></p>
-<% end %>
+<div class="mx-auto">
+  <div class="flash">
+    <% flash.each do |key, msg| %>
+      <p class="alert-<%= key %>"><%= msg %></p>
+    <% end %>
+  </div>
 
-<h1>All Posts</h1>
-
-<ul>
-  <%= render @posts %>
-</ul>
-
-<% if logged_in? %>
-  <%= link_to 'Create Post', new_post_path %>
-<% end %>
+  <ul class="p-0">
+    <%= render partial: 'post', collection: @posts,
+      spacer_template: 'line' %>
+  </ul>
+</div>
