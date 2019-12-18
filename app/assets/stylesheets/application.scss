@@ -12,17 +12,5 @@
  *
  *= require_tree .
  *= require_self
+ *= require_tree ../../javascript/stylesheets
  */
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-ul { list-style: none; }
-
-header {
-  ul {
-    height: 5em;
-    display: flex;
-    align-items: center;
-  }
-}
