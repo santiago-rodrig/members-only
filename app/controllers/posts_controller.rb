@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, except: [:new, :create]
 
   def new
     @post = Post.new
@@ -17,13 +17,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @user = current_user
     @posts = Post.all
   end
 
   private
 
   def safe_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :body)
   end
 end

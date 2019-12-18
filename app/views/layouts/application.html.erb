@@ -11,23 +11,10 @@
   </head>
 
   <body>
-    <aside>
-      <nav>
-        <ul>
-          <% unless logged_in? %>
-            <li>
-              <%= link_to 'Log in', login_path %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to 'Log out', logout_path,
-                method: :delete %>
-            </li>
-          <% end %>
-        </ul>
-      </nav>
-    </aside>
+    <%= render 'layouts/header' %>
 
-    <%= yield %>
+    <div class="<%= controller_name %>">
+      <%= yield %>
+    </div>
   </body>
 </html>

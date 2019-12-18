@@ -4,7 +4,13 @@ class User < ApplicationRecord
   has_secure_password
 
   def renew_token
-    set_token
+    token = SecureRandom.urlsafe_base64
+    update_attribute(
+      :remember_token,
+      Digest::SHA1.hexdigest(token)
+    )
+
+    token
   end
 
   private

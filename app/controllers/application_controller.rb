@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :require_login
+
   def sign_in(user)
     session[:user_id] = user.id
     cookies.permanent[:remember_token] = user.renew_token
@@ -7,8 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user || self.current_user =  User.find_by(
-      remember_token: cookies[:remember_token])
+    return @current_user if @current_user
+    return self.current_user = User.find_by(
+      remember_token: Digest::SHA1.hexdigest(cookies[:remember_token])
+    ) if cookies[:remember_token]
   end
 
   def current_user=(user)
@@ -19,13 +23,14 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
     cookies.delete(:remember_token)
     self.current_user = nil
-    redirect_to posts_url
+    redirect_to login_url
   end
 
   private
 
   def require_login
-    flash[:danger] = 'You are not a member'
-    redirect_to posts_url
+    unless current_user
+      redirect_to login_url
+    end
   end
 end

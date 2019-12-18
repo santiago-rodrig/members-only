@@ -25,9 +25,9 @@ User.create([
 User.find_by(name: 'john').posts.build(
   title: 'Secrets about Jen',
   body: 'Bla Bla Bla Secret here Bla'
-)
+).save
 
 User.find_by(name: 'jen').posts.build(
   title: 'Secrets about John',
   body: 'Bla Bla Bla Secret here Bla'
-)
+).save

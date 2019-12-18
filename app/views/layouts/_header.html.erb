@@ -1,0 +1,18 @@
+<header>
+  <nav>
+    <ul class="nav nav-pills navbar-inverse text-right">
+      <% unless logged_in? || controller_name == 'sessions' %>
+        <li>
+          <%= link_to 'Log in', login_path %>
+        </li>
+      <% else %>
+        <% unless controller_name == 'sessions' %>
+          <li>
+            <%= link_to 'Log out', logout_path,
+              method: :delete %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </nav>
+</header>

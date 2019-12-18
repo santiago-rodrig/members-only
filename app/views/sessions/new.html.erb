@@ -1,11 +1,19 @@
+<% flash.each do |key, msg| %>
+  <p><%= msg %></p>
+<% end %>
+
 <h1>Please Login</h1>
 
 <%= form_with(scope: :session, url: login_url, local: true) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </p>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
 
-  <%= f.submit %>
+  <%= f.submit 'Log in' %>
 <% end %>

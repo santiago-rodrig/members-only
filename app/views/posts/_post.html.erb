@@ -4,10 +4,10 @@
   </p>
 
   <p>
-    <%= post.content %>
+    <%= post.body %>
   </p>
 
-  <% if current_user %>
+  <% if logged_in? %>
     <p>
       <%= post.user.name %>
     </p>
