@@ -9,7 +9,7 @@
 
   <% if logged_in? %>
     <p>
-      <%= post.user.name %>
+      <small>The author is <strong><%= post.user.name %></strong></small>
     </p>
   <% end %>
 </li>

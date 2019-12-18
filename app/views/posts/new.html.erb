@@ -1,13 +1,13 @@
 <%= form_with(model: @post, local: true) do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body %>
-  </p>
+    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+  </div>
 
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>

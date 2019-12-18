@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'You post has been created'
-      redirect_to posts_url
+      redirect_to root_url
     else
       render :new
     end

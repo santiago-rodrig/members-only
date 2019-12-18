@@ -1,12 +1,4 @@
-<div class="mx-auto">
-  <div class="flash">
-    <% flash.each do |key, msg| %>
-      <p class="alert-<%= key %>"><%= msg %></p>
-    <% end %>
-  </div>
-
-  <ul class="p-0">
-    <%= render partial: 'post', collection: @posts,
-      spacer_template: 'line' %>
-  </ul>
-</div>
+<ul class="p-0">
+  <%= render partial: 'post', collection: @posts,
+    spacer_template: 'line' %>
+</ul>

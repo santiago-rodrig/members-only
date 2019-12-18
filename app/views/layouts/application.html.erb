@@ -11,7 +11,13 @@
   </head>
 
   <body>
-      <%= render 'layouts/header' %>
+    <%= render 'layouts/header' %>
+
+    <div class="flash m-4">
+      <% flash.each do |key, msg| %>
+        <div class="alert alert-<%= key %>"><%= msg %></div>
+      <% end %>
+    </div>
 
     <div class="container">
       <div class="row">
