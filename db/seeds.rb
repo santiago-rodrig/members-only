@@ -9,7 +9,7 @@
 User.delete_all
 Post.delete_all
 
-User.create([
+User.create!([
   { name: 'john',
     email: 'john@example.com',
     password: 'secret',

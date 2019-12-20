@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
     cookies.permanent[:remember_token] = user.renew_token
     self.current_user = user
-    redirect_to root_url
+    redirect_to user
   end
 
   def current_user

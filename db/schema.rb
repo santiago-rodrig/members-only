@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_150840) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "remember_token"
-    t.boolean "premium"
+    t.boolean "premium", default: false
   end
 
   add_foreign_key "posts", "users"
