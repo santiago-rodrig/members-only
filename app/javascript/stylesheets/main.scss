@@ -4,4 +4,10 @@ form {
   max-width: 300px;
 
   input[type="submit"] { width: 60%; }
+
+  div.field_with_errors:nth-child(2n) {
+    background: red;
+    padding: 3px;
+    border-radius: 5px;
+  }
 }
