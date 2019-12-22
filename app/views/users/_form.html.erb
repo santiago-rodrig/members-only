@@ -1,10 +1,4 @@
-<h1 class="text-center">Creating a New User</h1>
-
-<%= render partial: 'shared/errors', locals: { entity: @user } %>
-
-<%# <%= render partial: 'form', object: @user, locals: { submit_msg: 'Sign Up' } %1> %>
-
-<%= form_with(model: @user, local: true, class: 'mx-auto') do |f| %>
+<%= form_with(model: form, local: true, class: 'mx-auto') do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
@@ -25,5 +19,5 @@
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
 
-  <%= f.submit 'Sign Up', class: 'btn btn-primary mx-auto d-block mt-4' %>
+  <%= f.submit submit_msg, class: 'btn btn-primary mx-auto d-block mt-4' %>
 <% end %>

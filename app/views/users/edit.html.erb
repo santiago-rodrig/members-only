@@ -1,2 +1,18 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1 class="text-center mb-4">Editing User</h1>
+
+<%= form_with(model: @user, local: true, class: 'mx-auto') do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Update User', class: 'btn btn-primary mx-auto d-block mt-4' %>
+<% end %>
+
+<%= link_to 'Change Password', change_password_user_path(@user),
+  class: 'text-center d-block mt-3' %>

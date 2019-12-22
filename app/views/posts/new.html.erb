@@ -1,4 +1,8 @@
-<%= form_with(model: @post, local: true) do |f| %>
+<h1 class="text-center mb-4">Creating a Post</h1>
+
+<%= render partial: 'shared/errors', locals: { entity: @post } %>
+
+<%= form_with(url: renew_posts_url, scope: :post, local: true, class: 'mx-auto') do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
@@ -9,5 +13,5 @@
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
 
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit class: 'btn btn-primary d-block mx-auto mt-4' %>
 <% end %>

@@ -7,7 +7,7 @@
     <%= post.body %>
   </p>
 
-  <% if logged_in? %>
+  <% if logged_in? && is_premium? %>
     <p>
       <small>The author is <strong><%= post.user.name %></strong></small>
     </p>

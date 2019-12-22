@@ -5,6 +5,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def renew
+    redirect_to new_post_url
+  end
+
   def create
     @post = Post.new({ user_id: current_user.id }.merge(safe_params))
 

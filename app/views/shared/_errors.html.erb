@@ -1,0 +1,16 @@
+<% if entity.errors.any? %>
+  <div id="error-explanation">
+    <h3 class="text-danger text-center mb-4">
+      Found <%= pluralize entity.errors.count, 'error' %>
+    </h3>
+
+    <ul class="list-group mx-auto mb-4">
+      <% entity.errors.full_messages.each do |msg| %>
+        <li class="list-group-item list-group-item-danger">
+          <%= msg %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
