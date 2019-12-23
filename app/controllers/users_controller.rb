@@ -65,7 +65,8 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @posts = User.find(params[:id])
+    @user = User.find(params[:id])
+    @posts = @user.posts
   end
 
   private

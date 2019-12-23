@@ -31,6 +31,15 @@
                 <%= link_to 'Create Post', new_post_path, class: 'nav-link' %>
               </li>
             <% end %>
+
+            <% unless controller.controller_name == 'users' &&
+              controller.action_name == 'posts' %>
+
+              <li class="nav-item">
+                <%= link_to 'Your Posts', posts_user_url(session[:user_id]),
+                  class: 'nav-link' %>
+              </li>
+            <% end %>
           <% end %>
         <% end %>
 

@@ -28,6 +28,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(user)
   end
 
+  test 'signup link dissapears if we are already in the new user page' do
+    get new_user_url
+    assert_select 'a[href=?]', new_user_path, 0
+    get root_url
+    assert_select 'a[href=?]', new_user_path
+  end
+
   test 'should not sign up an invalid new user' do
     get new_user_url
     assert_response :success
@@ -52,5 +59,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert user.invalid?
+  end
+
+  test 'should get the posts from the user' do
+    log_in(users(:jhony), 'secret')
+    get posts_user_url(users(:jhony))
+    assert_response :success
   end
 end

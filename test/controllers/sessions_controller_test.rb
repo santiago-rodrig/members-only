@@ -24,6 +24,38 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_not_nil cookies[:remember_token]
   end
 
+  test 'log in link dissapears when in log in template' do
+    get login_url
+    assert_response :success
+    assert_select 'a[href=?]', login_path, 0
+  end
+
+  test 'log in link dissapears when a user is logged in' do
+    log_in(users(:jhony), 'secret')
+    get root_url
+    assert_select 'a[href=?]', login_path, 0
+    get new_user_url
+    assert_select 'a[href=?]', login_path, 0
+    get posts_user_url(users(:jhony))
+    assert_select 'a[href=?]', login_path, 0
+  end
+
+  test 'there is no log out link if a user is not logged in' do
+    get root_url
+    assert_select 'a[href=?]', logout_path, 0
+    log_in(users(:jenny), 'secret')
+    get root_url
+    assert_select 'a[href=?]', logout_path
+  end
+
+  test 'user posts link dissapears if already in the page' do
+    log_in(users(:jhony), 'secret')
+    get posts_user_url(users(:jhony))
+    assert_select 'a[href=?]', posts_user_url(users(:jhony)), 0
+    get root_url
+    assert_select 'a[href=?]', posts_user_url(users(:jhony))
+  end
+
   test 'should not login an invalid user' do
     post login_url, params: {
       session: {
