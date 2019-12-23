@@ -18,7 +18,8 @@ User.create!([
   { name: 'jen',
     email: 'jen@example.com',
     password: 'secret',
-    password_confirmation: 'secret'
+    password_confirmation: 'secret',
+    premium: true
   }
 ])
 
