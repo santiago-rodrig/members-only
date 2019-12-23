@@ -12,6 +12,8 @@ AllCops:
 Metrics/MethodLength:
   Include: ["app/controllers/*"]
   Max: 20
+Metrics/LineLength:
+  Max: 120
 Metrics/AbcSize:
   Include: ["app/controllers/*"]
   Max: 30
@@ -25,10 +27,8 @@ Style/Documentation:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-Layout/HashAlignment:
+Layout/AlignHash:
   EnforcedColonStyle: key
-Layout/LineLength:
-  Max: 120
 Layout/ExtraSpacing:
   AllowForAlignment: false
 Layout/MultilineMethodCallIndentation:
