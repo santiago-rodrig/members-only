@@ -41,7 +41,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'has many posts' do
-    assert_respond_to users(:jhony), posts
+    assert_respond_to users(:jhony), :posts
   end
 
   test 'name and email must be unique' do

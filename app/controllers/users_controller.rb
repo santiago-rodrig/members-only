@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(full_user_params)
 
     if @user.save
       flash[:success] = 'User has been created'
@@ -74,6 +74,15 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name,
       :email,
+    )
+  end
+
+  def full_user_params
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :password_confirmation
     )
   end
 

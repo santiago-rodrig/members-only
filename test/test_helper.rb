@@ -15,7 +15,7 @@ end
 class ActionDispatch::IntegrationTest
   def log_in(user, pass)
     post login_url, params: {
-      user: {
+      session: {
         email: user.email,
         password: pass
       }

@@ -20,8 +20,8 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_out
-    session.delete(:user_id)
-    cookies.delete(:remember_token)
+    session[:user_id] = nil
+    cookies[:remember_token] = nil
     self.current_user = nil
     redirect_to root_url
   end

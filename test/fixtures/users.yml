@@ -8,4 +8,4 @@ jhony:
 jenny:
   name: jenny
   email: jenny@example.net
-  password_digest: <%= BCrpyt::Password.create('secret') %>
+  password_digest: <%= BCrypt::Password.create('secret') %>
