@@ -19,6 +19,7 @@ the posts written by regular users.
 ### Requirements
 
 - `ruby` 2.6.5
+- `rails` 6.0.2.1
 - `yarn` 1.19.2
 - `sqlite3` 3.27.2
 - `bundler` 2.0.2
