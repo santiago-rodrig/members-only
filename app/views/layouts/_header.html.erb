@@ -19,10 +19,12 @@
                 method: :delete, class: 'nav-link' %>
             </li>
 
-            <li class="nav-item">
-              <%= link_to 'Profile', user_path(session[:user_id]),
-                class: 'nav-link' %>
-            </li>
+            <% unless controller.action_name == 'show' %>
+              <li class="nav-item">
+                <%= link_to 'Profile', user_path(session[:user_id]),
+                  class: 'nav-link' %>
+              </li>
+            <% end %>
 
             <% unless controller.controller_name == 'posts' &&
               %[new renew create].include?(controller.action_name) %>
