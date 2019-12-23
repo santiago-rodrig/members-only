@@ -48,14 +48,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', logout_path
   end
 
-  test 'user posts link dissapears if already in the page' do
-    log_in(users(:jhony), 'secret')
-    get posts_user_url(users(:jhony))
-    assert_select 'a[href=?]', posts_user_url(users(:jhony)), 0
-    get root_url
-    assert_select 'a[href=?]', posts_user_url(users(:jhony))
-  end
-
   test 'should not login an invalid user' do
     post login_url, params: {
       session: {

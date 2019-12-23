@@ -35,6 +35,22 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', new_user_path
   end
 
+  test 'user posts link dissapears if already in the page' do
+    log_in(users(:jhony), 'secret')
+    get posts_user_url(users(:jhony))
+    assert_select 'a[href=?]', posts_user_url(users(:jhony)), 0
+    get root_url
+    assert_select 'a[href=?]', posts_user_url(users(:jhony))
+  end
+
+  test 'user profile link dissapears if already in profile' do
+    log_in(users(:jhony), 'secret')
+    get user_url(users(:jhony))
+    assert_select 'a[href=?]', user_path(users(:jhony)), 0
+    get root_url
+    assert_select 'a[href=?]', user_path(users(:jhony))
+  end
+
   test 'should not sign up an invalid new user' do
     get new_user_url
     assert_response :success

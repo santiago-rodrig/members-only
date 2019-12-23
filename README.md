@@ -39,3 +39,8 @@ rails db:migrate:reset && rails db:seed
 
 Then, fire up the application with `rails s`, and take a look by visiting the
 URI `localhost:3000`.
+
+### Testing
+
+To test that everything is working properly run `rails test` from inside of
+the rails app directory.
