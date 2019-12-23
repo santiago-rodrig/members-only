@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
@@ -14,14 +16,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference 'User.count' do
       post users_url,
-        params: {
-          user: {
-            name: user.name,
-            email: user.email,
-            password: user.password,
-            password_confirmation: user.password_confirmation
-          }
-        }
+           params: {
+             user: {
+               name: user.name,
+               email: user.email,
+               password: user.password,
+               password_confirmation: user.password_confirmation
+             }
+           }
     end
 
     user = User.find_by(email: user.email)
@@ -64,14 +66,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_no_difference 'User.count' do
       post users_url,
-        params: {
-          user: {
-            name: user.name,
-            email: user.email,
-            password: user.password,
-            password_confirmation: user.password_confirmation
-          }
-        }
+           params: {
+             user: {
+               name: user.name,
+               email: user.email,
+               password: user.password,
+               password_confirmation: user.password_confirmation
+             }
+           }
     end
 
     assert user.invalid?

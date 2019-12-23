@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_action :require_login
 
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: safe_params[:email])
-    if user && user.authenticate(safe_params[:password])
+    if user&.authenticate(safe_params[:password])
       sign_in(user)
     else
       flash.now[:danger] = 'Wrong input'

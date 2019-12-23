@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  skip_before_action :require_login, except: [:new, :create]
+  skip_before_action :require_login, except: %i[new create]
 
   def new
     @post = Post.new

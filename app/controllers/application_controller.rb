@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :require_login
 
@@ -10,14 +12,15 @@ class ApplicationController < ActionController::Base
 
   def current_user
     return @current_user if @current_user
-    return self.current_user = User.find_by(
+
+    return unless cookies[:remember_token]
+
+    self.current_user = User.find_by(
       remember_token: Digest::SHA1.hexdigest(cookies[:remember_token])
-    ) if cookies[:remember_token]
+    )
   end
 
-  def current_user=(user)
-    @current_user = user
-  end
+  attr_writer :current_user
 
   def sign_out
     session[:user_id] = nil
@@ -29,8 +32,6 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    unless current_user
-      redirect_to login_url
-    end
+    redirect_to login_url unless current_user
   end
 end

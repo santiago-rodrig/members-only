@@ -1,0 +1,14 @@
+linters:
+  rubocop:
+    display_cop_names: true
+    config: './.rubocop.yml'
+    fixer: true
+
+files:
+  ignore:
+    - "bin/*"
+    - "db/*"
+    - "config/*"
+    - "Guardfile"
+    - "Rakefile"
+    - "node_modules/*"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -10,18 +12,16 @@ User.delete_all
 Post.delete_all
 
 User.create!([
-  { name: 'john',
-    email: 'john@example.com',
-    password: 'secret',
-    password_confirmation: 'secret'
-  },
-  { name: 'jen',
-    email: 'jen@example.com',
-    password: 'secret',
-    password_confirmation: 'secret',
-    premium: true
-  }
-])
+               { name: 'john',
+                 email: 'john@example.com',
+                 password: 'secret',
+                 password_confirmation: 'secret' },
+               { name: 'jen',
+                 email: 'jen@example.com',
+                 password: 'secret',
+                 password_confirmation: 'secret',
+                 premium: true }
+             ])
 
 User.find_by(name: 'john').posts.build(
   title: 'Secrets about Jen',
