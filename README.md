@@ -29,6 +29,9 @@ the posts written by regular users.
 Issue the following command **as a regular user**.
 
 ```shell
+git clone --single-branch --branch feature/members-only \
+https://github.com/santiago-rodrig/members-only.git && \
+cd members-only && \
 bundle install && bundle update && yarn install --check-files && \
 yarn add bootstrap@4.3.1 jquery popper.js && \
 rails db:migrate:reset && rails db:seed
