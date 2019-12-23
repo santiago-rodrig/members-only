@@ -28,7 +28,8 @@ the posts written by regular users.
 Issue the following command **as a regular user**.
 
 ```shell
-bundle install && bundle update && yarn install --check-files
+bundle install && bundle update && yarn install --check-files && \
+yarn add bootstrap@4.3.1 jquery popper.js
 ```
 
 Then, fire up the application with `rails s`, and take a look by visiting the
