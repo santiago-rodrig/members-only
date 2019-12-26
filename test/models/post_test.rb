@@ -26,7 +26,7 @@ class PostTest < ActiveSupport::TestCase
     )
 
     assert post1.valid?
-    post_1.save
+    post1.save
     assert post2.invalid?
     assert_equal 1, post2.errors.count
   end
