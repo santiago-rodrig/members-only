@@ -12,8 +12,6 @@ AllCops:
 Metrics/MethodLength:
   Include: ["app/controllers/*"]
   Max: 20
-Metrics/LineLength:
-  Max: 120
 Metrics/AbcSize:
   Include: ["app/controllers/*"]
   Max: 30
@@ -34,3 +32,5 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
+Layout/LineLength:
+  Max: 120
