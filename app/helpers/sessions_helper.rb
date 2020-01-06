@@ -2,10 +2,10 @@
 
 module SessionsHelper
   def logged_in?
-    session[:user_id]
+    controller.current_user
   end
 
   def premium?
-    User.find(session[:user_id]).premium?
+    controller.current_user.premium?
   end
 end
