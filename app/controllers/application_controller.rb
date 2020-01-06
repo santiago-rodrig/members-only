@@ -10,20 +10,20 @@ class ApplicationController < ActionController::Base
     redirect_to user
   end
 
-# hope this is enough
-def current_user
-  return nil unless cookies[:remember_token]
+  # hope this is enough
+  def current_user
+    return nil unless cookies[:remember_token]
 
-  @current_user ||= User.find_by(
-    remember_token: Digest::SHA1.hexdigest(cookies[:remember_token])
-  )
-end
+    @current_user ||= User.find_by(
+      remember_token: Digest::SHA1.hexdigest(cookies[:remember_token])
+    )
+  end
 
-# same as
-# def current_user=(user)
-#   @current_user = user
-# end
-attr_writer :current_user
+  # same as
+  # def current_user=(user)
+  #   @current_user = user
+  # end
+  attr_writer :current_user
 
   def sign_out
     session[:user_id] = nil
