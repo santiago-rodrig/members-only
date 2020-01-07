@@ -1,24 +1,51 @@
-# README
+# Members Only
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a web app where only users with premium status can see the authors of
+the posts written by regular users.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- Users sign up
+- Logged in status
+- Remembering of sessions
+- Posts creation
+- Users edition
+- Users profile
+- Log in and log out
+- Bootstrap
 
-* System dependencies
+## Setup
 
-* Configuration
+### Requirements
 
-* Database creation
+- `ruby` 2.6.5
+- `rails` 6.0.2.1
+- `yarn` 1.19.2
+- `sqlite3` 3.27.2
+- `bundler` 2.0.2
 
-* Database initialization
+### Installation
 
-* How to run the test suite
+Issue the following command **as a regular user**.
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+git clone --single-branch --branch feature/members-only \
+https://github.com/santiago-rodrig/members-only.git && \
+cd members-only && \
+bundle install && bundle update && yarn install --check-files && \
+yarn add bootstrap@4.3.1 jquery popper.js && \
+rails db:migrate:reset && rails db:seed
+```
 
-* Deployment instructions
+Then, fire up the application with `rails s`, and take a look by visiting the
+URI `localhost:3000`.
 
-* ...
+Also, there are already 2 users in the database, **jen**, and **john**, **jen**
+is a **premium user**. You can log in with jen's account and see that she can
+see the authors of the posts listed in the root path of the app. The email of
+**jen** is **jen@example.com**, and her password is **secret**.
+
+### Testing
+
+To test that everything is working properly run `rails test` from inside of
+the rails app directory.

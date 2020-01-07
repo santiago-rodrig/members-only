@@ -1,0 +1,15 @@
+<h1 class="text-center">Please Login</h1>
+
+<%= form_with(scope: :session, url: login_url, local: true, class: 'mx-auto') do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Log in', class: 'btn btn-primary d-block mx-auto' %>
+<% end %>

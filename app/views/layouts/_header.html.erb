@@ -1,0 +1,58 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <%= link_to 'MembersOnly', root_path, class: 'navbar-brand' %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% unless logged_in? || controller_name == 'sessions' %>
+          <li class="nav-item">
+            <%= link_to 'Log In', login_path, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <% unless controller_name == 'sessions' %>
+            <li class="nav-item">
+              <%= link_to 'Log out', logout_path,
+                method: :delete, class: 'nav-link' %>
+            </li>
+
+            <% unless controller.action_name == 'show' %>
+              <li class="nav-item">
+                <%= link_to 'Profile', user_path(session[:user_id]),
+                  class: 'nav-link' %>
+              </li>
+            <% end %>
+
+            <% unless controller.controller_name == 'posts' &&
+              %[new renew create].include?(controller.action_name) %>
+
+              <li class="nav-item">
+                <%= link_to 'Create Post', new_post_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+
+            <% unless controller.controller_name == 'users' &&
+              controller.action_name == 'posts' %>
+
+              <li class="nav-item">
+                <%= link_to 'Your Posts', posts_user_url(session[:user_id]),
+                  class: 'nav-link' %>
+              </li>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% unless controller.controller_name == 'users' &&
+          %w[new create index].include?(controller.action_name) %>
+
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

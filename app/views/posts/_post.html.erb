@@ -1,0 +1,15 @@
+<li>
+  <h2>
+    <%= post.title %>
+  </h2>
+
+  <p>
+    <%= post.body %>
+  </p>
+
+  <% if logged_in? && premium? %>
+    <p>
+      <small>The author is <strong><%= post.user.name %></strong></small>
+    </p>
+  <% end %>
+</li>

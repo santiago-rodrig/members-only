@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>MembersOnly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all',
+      'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="pb-4">
+    <%= render 'layouts/header' %>
+
+    <div class="flash m-4">
+      <% flash.each do |key, msg| %>
+        <div class="alert alert-<%= key %>"><%= msg %></div>
+      <% end %>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <main class="<%= controller_name %> pt-3 col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   </body>
 </html>
