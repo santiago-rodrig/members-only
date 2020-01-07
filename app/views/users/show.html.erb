@@ -1,0 +1,26 @@
+<h1 class="text-center mb-4">Profile</h1>
+
+<ul class="list-group mx-auto">
+  <li class="list-group-item">
+    <strong>Username</strong>: <%= @user.name %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Email</strong>: <%= @user.email %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Premium</strong>: <%= @user.premium? ? 'yes' : 'no' %>
+  </li>
+</ul>
+
+<div class="user-links text-center mt-4">
+  <%= link_to 'Edit User', edit_user_path(@user) %>
+  |
+  <%= mail_to 'santo1996.29@gmail.com', 'Ask for Premium',
+    target: '_blank',
+    subject: "Allow Premium Access to #{@user.name}",
+    encode: 'javascript',
+    body: "Please provide premium access to #{@user.name}"
+  %>
+</div>

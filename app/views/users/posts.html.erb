@@ -1,0 +1,6 @@
+<h1 class="text-center mb-5">Your Posts</h1>
+
+<ul>
+  <%= render partial: 'posts/post', collection: @posts,
+    spacer_template: 'posts/line' %>
+</ul>
